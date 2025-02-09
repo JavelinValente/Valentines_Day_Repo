@@ -10,32 +10,39 @@ const pages = [
         ]
     },
     {
-        title: "Do you know how much you mean to me?",
-        question: "You are the most important person in my life. So I just have to ask:",
+        title: "Sorry for waiting so long to ask",
+        question: "But I'm gonna ask now",
         buttons: [
-            { text: "Yes", nextPage: 2 },
-            { text: "No", nextPage: 6 }
+            { text: "Continue", nextPage: 2 },
+            { text: "Took too long! Go Away.", nextPage: 6 }
         ]
     },
     {
-        title: "Are you ready for a special question?",
-        question: "This one’s been on my mind for a while now. Are you ready?",
+        title: "I just want to let you know I love you very much :)",
+        question: "",
         buttons: [
-            { text: "Yes", nextPage: 3 },
-            { text: "No", nextPage: 7 }
+            { text: "Continue", nextPage: 3 },
         ]
     },
     {
         title: "Will you be my Valentine?",
-        question: "So, here it is. Will you be my Valentine?",
+        question: "",
         buttons: [
             { text: "Yes", nextPage: 4 },
-            { text: "No", nextPage: 8 }
+            { text: "No", nextPage: 7 }
         ]
     },
     {
         title: "Yay! You’re my Valentine!",
         question: "I’m so happy you said yes! I can’t wait to celebrate together. 💖",
+        images: [
+            "images/Barnes_and_Noble.JPG",  // 1st image
+            "images/Chicago_Henge.JPG",  // 2nd image
+            "images/Morton_Sitting.JPG",  // 3rd image
+            "images/Morton_standing.JPG",  // 4th image
+            "images/pumpkin_patch.JPG",  // 5th image
+            "images/Spiders.JPG"   // 6th image
+        ],
         buttons: []
     },
     {
@@ -44,13 +51,8 @@ const pages = [
         buttons: []
     },
     {
-        title: "Let me show you just how much!",
+        title: "Sorry baby :/",
         question: "I’ll make sure you know how much you mean to me. 💖",
-        buttons: []
-    },
-    {
-        title: "Take your time!",
-        question: "No rush, I’m here for you. 😊",
         buttons: []
     },
     {
@@ -64,10 +66,18 @@ function loadPage(pageIndex) {
     const page = pages[pageIndex];
     const content = document.getElementById("content");
 
+    // Clear previous content and set the new content
     content.innerHTML = `
         <h1>${page.title}</h1>
         <p>${page.question}</p>
     `;
+
+    if (page.images) {
+        // Only display images on the "Yay! You're my Valentine!" page
+        page.images.forEach(image => {
+            content.innerHTML += `<img src="${image}" alt="Valentine Image" class="page-image">`;
+        });
+    }
 
     page.buttons.forEach(button => {
         content.innerHTML += `

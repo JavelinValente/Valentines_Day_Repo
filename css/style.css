@@ -6,10 +6,12 @@ body {
     padding: 0;
     margin: 0;
 }
+
 h1 {
     color: #ff5e5e;
     font-size: 2.5em;
 }
+
 .button {
     font-size: 1.5em;
     padding: 10px 20px;
@@ -21,9 +23,31 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .button:hover {
     background-color: #ff1c1c;
 }
+
 .content {
     margin-top: 100px;
+}
+
+.page-image {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    .button {
+        font-size: 1.2em;
+        padding: 8px 15px;
+    }
+    .page-image {
+        max-width: 100%;
+    }
 }
